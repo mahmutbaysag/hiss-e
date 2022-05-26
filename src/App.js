@@ -1,12 +1,20 @@
 import React,{useState,useEffect} from 'react'
-
+import axios from 'axios'
 
 function App() {
 
   const [data, setData] = useState([{}])
 
   useEffect(()=>{
-    fetch("https://hisse-server.herokuapp.com/hisseler", {            
+    axios.get('/hisseler')
+    .then(function(response){
+      setData(response);
+    }).catch(function(error){
+      console.log(error);
+    })
+
+
+    fetch("/hisseler", {            
       method: 'GET',
   }).then(
       res => res.json()
