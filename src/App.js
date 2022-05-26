@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState([{}])
 
   useEffect(()=>{
-    axios.get('/hisseler')
+    axios.get('https://hisse-server.herokuapp.com/hisseler')
     .then(function(response){
       setData(response);
     }).catch(function(error){
