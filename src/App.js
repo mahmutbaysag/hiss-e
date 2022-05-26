@@ -13,17 +13,6 @@ function App() {
       console.log(error);
     })
 
-
-    fetch("/hisseler", {            
-      method: 'GET',
-  }).then(
-      res => res.json()
-    ).then(
-      data=>{
-        setData(data)
-        console.log(data)
-      }
-    )
   }, [])
 
   
