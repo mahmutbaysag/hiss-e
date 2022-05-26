@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState([{}])
 
   useEffect(()=>{
-    fetch("/hisseler").then(
+    fetch("https://hisse-server.herokuapp.com/hisseler").then(
       res => res.json()
     ).then(
       data=>{
