@@ -14,7 +14,7 @@ function App() {
   //   })
 
   // }, [])
-  const getir = () => {
+  const getir = async() => {
     axios.get('https://hisse-server.herokuapp.com/hisseler')
     .then(function(response){
       setData(response);
