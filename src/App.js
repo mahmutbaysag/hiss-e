@@ -8,8 +8,8 @@ function App() {
   useEffect(()=>{
     axios.get('https://hisse-server.herokuapp.com/hisseler')
     .then(function(response){
-      setData(response);
-      console.log(response);
+      setData(response.data);
+      console.log(response.data);
     }).catch(function(error){
       console.log(error);
     })
