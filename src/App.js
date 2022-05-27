@@ -5,27 +5,21 @@ function App() {
 
   const [data, setData] = useState([{}])
 
-  // useEffect(()=>{
-  //   axios.get('https://hisse-server.herokuapp.com/hisseler')
-  //   .then(function(response){
-  //     setData(response);
-  //   }).catch(function(error){
-  //     console.log(error);
-  //   })
-
-  // }, [])
-  const getir = async() => {
+  useEffect(()=>{
     axios.get('https://hisse-server.herokuapp.com/hisseler')
     .then(function(response){
       setData(response);
+      console.log(response);
     }).catch(function(error){
       console.log(error);
     })
-  }
+
+  }, [])
+
   
 
   return (
-    <table onLoad={getir} id='hissetablo' className='table text-black table-stripped table-hover dt-responsive'>
+    <table id='hissetablo' className='table text-black table-stripped table-hover dt-responsive'>
      <thead className='text-light bg-dark'> <tr>
         <th>Hisse Adı</th>
         <th>Son Fiyatı</th>
@@ -33,7 +27,10 @@ function App() {
         <th>Piyasa Hacmi</th>
       </tr>
       </thead>
-    {
+    {(typeof data.hisseler === 'undefined') ? (
+      <p>Yükleniyor...</p>
+    ): (
+      
       data.hisseler.map((hisse,i) =>(
         <tr key={i}>
           <td>{hisse.ad}</td>
@@ -42,7 +39,7 @@ function App() {
           <td>{hisse.hacim}</td>
         </tr>
       ))
-    }
+    )}
 
     </table>
   )
