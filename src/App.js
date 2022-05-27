@@ -15,7 +15,12 @@ function App() {
 
   }, [])
 
-  
+  axios.get('https://hisse-server.herokuapp.com/hisseler')
+    .then(function(response){
+      setData(response);
+    }).catch(function(error){
+      console.log(error);
+    })
 
   return (
     <table id='hissetablo' className='table text-black table-stripped table-hover dt-responsive'>
