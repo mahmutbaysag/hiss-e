@@ -33,10 +33,7 @@ function App() {
         <th>Piyasa Hacmi</th>
       </tr>
       </thead>
-    {(typeof data.hisseler === 'undefined') ? (
-      <p>Yükleniyor...</p>
-    ): (
-      
+    {
       data.hisseler.map((hisse,i) =>(
         <tr key={i}>
           <td>{hisse.ad}</td>
@@ -45,7 +42,7 @@ function App() {
           <td>{hisse.hacim}</td>
         </tr>
       ))
-    )}
+    }
 
     </table>
   )
